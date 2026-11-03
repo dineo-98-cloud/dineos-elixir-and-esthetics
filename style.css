@@ -1,0 +1,1159 @@
+/* =====================================
+   DINEO'S ELIXIR & ESTHETICS
+   COMPLETE WEBSITE STYLESHEET
+===================================== */
+
+/* 1. GENERAL SETTINGS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #f8e8e8;
+  color: #211513;
+  overflow-x: hidden;
+  animation: pageEnter 0.7s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 2. ANIMATIONS */
+
+@keyframes pageEnter {
+  from {
+      opacity: 0;
+      transform: translateY(12px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+      opacity: 0;
+      transform: translateY(25px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes softZoom {
+  from { transform: scale(1.04); }
+  to { transform: scale(1); }
+}
+
+/* 3. HEADER AND NAVIGATION */
+
+.header {
+  min-height: 112px;
+  background: #100b0a;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 5%;
+  border-bottom: 1px solid #b58b55;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f5e5d2;
+}
+
+.crown {
+  color: #d8b36b;
+  font-size: 23px;
+  margin-bottom: -8px;
+}
+
+.brand-name {
+  font-size: 37px;
+  letter-spacing: 3px;
+}
+
+.logo small {
+  font-family: cursive;
+  font-size: 20px;
+  color: #d8b36b;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.header nav a {
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 12px 0;
+  position: relative;
+}
+
+.header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0;
+  height: 2px;
+  background: #e5c17e;
+  transition: width 0.3s ease;
+}
+
+.header nav a:hover,
+.header nav a.active {
+  color: #e5c17e;
+}
+
+.header nav a:hover::after,
+.header nav a.active::after {
+  width: 100%;
+}
+
+/* 4. GOLD BUTTONS */
+
+.book-button,
+.hero-button,
+.about-button {
+  display: inline-block;
+  background: linear-gradient(90deg, #f5d99e, #d6ad69);
+  color: #211513;
+  padding: 15px 30px;
+  border-radius: 35px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.book-button:hover,
+.hero-button:hover,
+.about-button:hover {
+  background: #78504b;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* 5. HOMEPAGE HERO */
+
+.hero {
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+      url("https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1800")
+      center/cover no-repeat;
+  filter: grayscale(100%);
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(70, 37, 37, 0.94),
+      rgba(70, 37, 37, 0.75) 40%,
+      rgba(0, 0, 0, 0.10)
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  color: white;
+  padding: 45px 10%;
+  max-width: 800px;
+  animation: fadeUp 1s ease;
+}
+
+.tagline {
+  font-family: Arial, sans-serif;
+  letter-spacing: 5px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.hero-content h1 {
+  font-size: 75px;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+.hero-content h2 {
+  font-family: cursive;
+  font-size: 48px;
+  font-weight: normal;
+  font-style: italic;
+  color: #e6c27e;
+  margin-bottom: 25px;
+}
+
+.hero-services {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 19px;
+  margin-bottom: 35px;
+}
+
+/* 6. HOMEPAGE SERVICES */
+
+.home-services {
+  background: #f8e8e8;
+  text-align: center;
+  padding: 40px 6% 65px;
+}
+
+.section-label {
+  color: #78504b;
+  font-family: Arial, sans-serif;
+  letter-spacing: 5px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.home-services > h2,
+.services-page > h2,
+.mission-section > h2 {
+  font-size: 31px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+/* HOMEPAGE CARDS */
+
+.home-card-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.home-card {
+  width: 33.33%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: left;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.4s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-6px);
+}
+
+.home-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease;
+}
+
+.home-card:hover img {
+  transform: scale(1.08);
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 70%;
+  padding: 25px 20px;
+  color: white;
+  background: linear-gradient(
+      90deg,
+      rgba(76,43,42,0.96),
+      rgba(76,43,42,0.65),
+      transparent
+  );
+}
+
+.card-content h3 {
+  font-size: 19px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin: 12px 0;
+}
+
+.card-content p {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.card-content a {
+  display: inline-block;
+  color: #e9c780;
+  border: 1px solid #e9c780;
+  border-radius: 25px;
+  padding: 9px 18px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.card-content a:hover {
+  background: #e9c780;
+  color: #211513;
+}
+
+/* 7. SHARED PAGE BANNER */
+
+.page-banner {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.page-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+      url("https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1600")
+      center/cover no-repeat;
+  filter: grayscale(100%);
+  z-index: -2;
+}
+
+.page-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: -1;
+}
+
+.page-banner > div {
+  padding: 35px 20px;
+  animation: fadeUp 0.9s ease;
+}
+
+.page-banner p {
+  color: #e6c27e;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+.page-banner h1 {
+  font-size: 45px;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+
+.page-banner h2 {
+  color: #e6c27e;
+  font-family: cursive;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+/* 8. SERVICES PAGE */
+
+.services-page {
+  background: #f8e8e8;
+  text-align: center;
+  padding: 55px 6%;
+}
+
+.intro {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  line-height: 1.7;
+  font-family: Arial, sans-serif;
+}
+
+/* Horizontal clickable service cards */
+
+.service-list {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  max-width: 1100px;
+  margin: 35px auto 0;
+}
+
+.service-box {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  background: #fffafa;
+  color: #211513;
+  text-align: center;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+  transition: 0.35s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.16);
+}
+
+.service-image {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: 0.5s;
+}
+
+.service-box:hover .service-image {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.service-details {
+  padding: 22px 15px;
+}
+
+.service-details h3 {
+  color: #78504b;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.service-details p {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.service-details span {
+  color: #a77b3e;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 9. ABOUT PAGE */
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+  padding: 70px 8%;
+  background: #f8e8e8;
+}
+
+.about-intro h2 {
+  font-size: 36px;
+  font-weight: normal;
+  color: #503532;
+  margin: 15px 0 25px;
+}
+
+.about-intro p:not(.section-label) {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  color: #574541;
+}
+
+.about-image img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.about-button {
+  margin-top: 15px;
+}
+
+.mission-section {
+  text-align: center;
+  background: #fffafa;
+  padding: 65px 7%;
+}
+
+.mission-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.mission-card {
+  background: #f8e8e8;
+  padding: 35px 25px;
+  border-radius: 10px;
+  border-bottom: 3px solid #d6ad69;
+  transition: 0.3s;
+}
+
+.mission-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+
+.mission-card span {
+  font-size: 35px;
+  color: #b58b55;
+}
+
+.mission-card h3 {
+  color: #78504b;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
+
+.mission-card p {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #574541;
+}
+
+.about-closing {
+  text-align: center;
+  padding: 65px 20px;
+  color: white;
+  background:
+      linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+      url("https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1600")
+      center/cover no-repeat;
+}
+
+.about-closing h2 {
+  font-size: 32px;
+  font-weight: normal;
+  color: #e6c27e;
+  margin-bottom: 15px;
+}
+
+/* 10. CONTACT PAGE */
+
+.contact-page {
+  background: #f8e8e8;
+  padding: 55px 7%;
+}
+
+.contact-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-heading h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.contact-heading > p:last-child {
+  font-family: Arial, sans-serif;
+  color: #78504b;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 30px;
+}
+
+.contact-info,
+.contact-form {
+  background: #fffafa;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.contact-info h3,
+.contact-form h3 {
+  color: #78504b;
+  font-size: 23px;
+  margin-bottom: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.contact-item > span {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #211513;
+  color: #e6c27e;
+  font-size: 20px;
+}
+
+.contact-item h4 {
+  margin-bottom: 5px;
+  color: #78504b;
+}
+
+.contact-item p,
+.contact-item a {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #51413d;
+}
+
+/* 11. FORMS - BOOKING, CONTACT  */
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #78504b;
+  margin-top: 13px;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin-top: 7px;
+  margin-bottom: 10px;
+  border: 1px solid #d6b994;
+  border-radius: 5px;
+  background: #fff;
+  color: #211513;
+  outline: none;
+  font-family: Arial, sans-serif;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #b58b55;
+  box-shadow: 0 0 7px rgba(181,139,85,0.25);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+form button {
+  margin-top: 18px;
+  background: #d6ad69;
+  color: #211513;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 25px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #78504b;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 12. FRAGRANCE AND PRODUCT CATEGORIES */
+
+.category-list {
+  max-width: 850px;
+  margin: 35px auto;
+}
+
+.category-button {
+  width: 100%;
+  background: #211513;
+  color: #e6c27e;
+  border: 1px solid #b58b55;
+  padding: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.category-button:hover,
+.category-button.selected {
+  background: #78504b;
+  color: white;
+}
+
+.category-content {
+  display: none;
+  background: #fffafa;
+  padding: 20px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.category-content.show {
+  display: block;
+  animation: fadeUp 0.4s ease;
+}
+
+/* Product cards */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  background: #fffafa;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  color: #78504b;
+  padding: 15px 15px 5px;
+}
+
+.product-card p {
+  font-family: Arial, sans-serif;
+  padding: 5px 15px;
+  line-height: 1.5;
+}
+
+.product-card .price {
+  color: #a77b3e;
+  font-weight: bold;
+  padding-bottom: 18px;
+}
+
+/* 13. FOOTER */
+
+footer {
+  background: #100b0a;
+  color: #e5c17e;
+  text-align: center;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  border-top: 1px solid #b58b55;
+}
+
+/* 14. HOVER EFFECTS */
+
+button,
+a,
+.service-box,
+.mission-card,
+.product-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+.book-button:active,
+.hero-button:active {
+  transform: scale(0.97);
+}
+
+/* 15. TABLET RESPONSIVENESS */
+
+@media (max-width: 900px) {
+
+  .header {
+      flex-wrap: wrap;
+      gap: 20px;
+  }
+
+  .header nav {
+      gap: 20px;
+  }
+
+  .home-card-container {
+      flex-wrap: wrap;
+  }
+
+  .home-card {
+      width: 47%;
+  }
+
+  .service-list {
+      flex-wrap: wrap;
+  }
+
+  .service-box {
+      width: 47%;
+  }
+
+  .mission-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 16. MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+  .header {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .brand-name {
+      font-size: 30px;
+  }
+
+  .header nav {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+  }
+
+  .header nav a {
+      font-size: 11px;
+  }
+
+  .book-button {
+      padding: 12px 25px;
+  }
+
+  .hero {
+      min-height: 500px;
+  }
+
+  .hero-content {
+      padding: 35px 7%;
+  }
+
+  .hero-content h1 {
+      font-size: 48px;
+  }
+
+  .hero-content h2 {
+      font-size: 32px;
+  }
+
+  .tagline {
+      font-size: 11px;
+      letter-spacing: 3px;
+  }
+
+  .hero-services {
+      font-size: 14px;
+  }
+
+  .home-services > h2 {
+      font-size: 23px;
+  }
+
+  .home-card {
+      width: 100%;
+  }
+
+  .page-banner {
+      min-height: 230px;
+  }
+
+  .page-banner h1 {
+      font-size: 32px;
+  }
+
+  .page-banner h2 {
+      font-size: 25px;
+  }
+
+  .service-list {
+      flex-direction: column;
+  }
+
+  .service-box {
+      width: 100%;
+  }
+
+  .about-section {
+      grid-template-columns: 1fr;
+      padding: 45px 7%;
+  }
+
+  .about-intro h2 {
+      font-size: 29px;
+  }
+
+  .about-image img {
+      height: 280px;
+  }
+
+  .mission-container {
+      grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+      grid-template-columns: 1fr;
+  }
+
+  .contact-info,
+  .contact-form {
+      padding: 25px;
+  }
+
+  .contact-heading h2 {
+      font-size: 25px;
+  }
+
+  .product-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .about-closing h2 {
+      font-size: 25px;
+  }
+}
+
+/* 17. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+  }
+}
+
+
+/* CONTACT PAGE BANNER */
+.contact-page ~ footer {
+  margin-top: 0;
+}
+
+body:has(.contact-page) .page-banner {
+  min-height: 350px;
+  background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+      url("https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1600")
+      center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+body:has(.contact-page) .page-banner p {
+  color: #e5c17e;
+  letter-spacing: 4px;
+  font-size: 13px;
+}
+
+body:has(.contact-page) .page-banner h1 {
+  color: #e5c17e;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 55px;
+  margin: 15px 0;
+  animation: fadeUp 1s ease;
+}
+
+body:has(.contact-page) .page-banner h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  body:has(.contact-page) .page-banner h1 {
+      font-size: 38px;
+  }
+}
+
+
+/* ENLARGE SERVICE CARD WHEN CLICKED */
+.service-card {
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card.active {
+  transform: scale(1.12);
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(214, 173, 105, 0.5);
+}
+
+
+.service-card {
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card.active {
+  transform: scale(1.08);
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(214, 173, 105, 0.5);
+}
+
+.service-details {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8e8e8;
+  border-radius: 10px;
+  color: #211513;
+}
+
+.service-card.active .service-details {
+  display: block;
+}
+
+
+/* EMPTY BOOKING BAG */
+.empty-booking {
+  text-align: center;
+  padding: 35px 20px;
+  margin: 20px 0;
+  background: rgba(201, 164, 76, 0.08);
+  border: 1px dashed #c9a44c;
+  border-radius: 15px;
+  animation: fadeUp 0.6s ease;
+}
+
+.empty-booking-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+  animation: bagFloat 2s ease-in-out infinite;
+}
+
+.empty-booking h3 {
+  color: #c9a44c;
+  margin-bottom: 10px;
+}
+
+.empty-booking p {
+  margin-bottom: 20px;
+  color: inherit;
+  font-family: Arial, sans-serif;
+}
+
+.empty-booking a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* SHOPPING BAG ANIMATION */
+@keyframes bagFloat {
+  0%, 100% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-8px);
+  }
+}
+

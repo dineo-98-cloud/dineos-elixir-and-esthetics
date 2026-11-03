@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Explore nail services, perfumes, fragrances, skincare and facial treatments at Dineo's Elixir & Esthetics in Pretoria.">
+    <title>Our Services | Dineo's Elixir & Esthetics</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .services-hero {
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1600')
+            center/cover;
+      }
+
+      .services-hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 55px;
+        color: #e5c17e;
+      }
+
+      .services-hero p {
+        letter-spacing: 3px;
+      }
+
+      .services {
+        background: #f8e8e8;
+        padding: 65px 6%;
+        text-align: center;
+      }
+
+      .services h2,
+      .catalogue h2 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #503532;
+        font-size: 40px;
+      }
+
+      .service-intro {
+        color: #78504b;
+        margin-bottom: 40px;
+      }
+
+      .service-container {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .service-card {
+        background: #fffafa;
+        border: 1px solid #ead7d0;
+        border-radius: 12px;
+        overflow: hidden;
+        padding-bottom: 25px;
+        box-shadow: 0 8px 25px rgba(61, 35, 32, 0.1);
+        transition: 0.3s;
+      }
+
+      .service-card:hover {
+        box-shadow: 0 12px 30px rgba(61, 35, 32, 0.2);
+      }
+
+      .service-card img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+      }
+
+      .service-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 30px;
+        color: #78504b;
+        margin: 20px 10px 10px;
+      }
+
+      .service-card p {
+        color: #78504b;
+        font-size: 13px;
+        padding: 0 15px;
+      }
+
+      .service-btn,
+      .action-btn {
+        display: inline-block;
+        border: none;
+        background: #d6ad69;
+        color: #211513;
+        padding: 13px 25px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-top: 15px;
+        text-decoration: none;
+      }
+
+      .service-btn:hover,
+      .action-btn:hover {
+        background: #78504b;
+        color: white;
+      }
+
+      .catalogue {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #f8e8e8;
+        overflow-y: auto;
+        padding: 28px 6%;
+      }
+
+      .catalogue[hidden],
+      .modal[hidden] {
+        display: none;
+      }
+
+      .view-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #d6ad69;
+        padding-bottom: 18px;
+      }
+
+      .view-top h2 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #503532;
+        font-size: 36px;
+        margin: 0;
+      }
+
+      .back-button {
+        background: #211513;
+        color: #e5c17e;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+
+      .catalogue-inner {
+        max-width: 1100px;
+        margin: 30px auto;
+      }
+
+      .catalogue-inner h3 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #78504b;
+        font-size: 30px;
+      }
+
+      .category-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .category-button {
+        border: 1px solid #d6ad69;
+        background: #fffafa;
+        color: #503532;
+        border-radius: 25px;
+        padding: 12px 18px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .category-button.selected,
+      .category-button:hover {
+        background: #211513;
+        color: #e5c17e;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin: 22px 0;
+      }
+
+      .product-card {
+        background: #fffafa;
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: left;
+        box-shadow: 0 5px 18px rgba(61, 35, 32, 0.09);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .product-card-body {
+        padding: 15px;
+      }
+
+      .product-card h4 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #78504b;
+        font-size: 23px;
+        margin: 0 0 5px;
+      }
+
+      .product-card p {
+        font-size: 13px;
+        color: #594743;
+        line-height: 1.6;
+      }
+
+      .price-line {
+        font-weight: 600;
+        color: #503532;
+      }
+
+      .open-product {
+        width: 100%;
+        border: none;
+        background: #211513;
+        color: #e5c17e;
+        border-radius: 22px;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+
+      .nail-length-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .nail-length {
+        background: #fffafa;
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: left;
+      }
+
+      .nail-length img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .nail-length div {
+        padding: 15px;
+      }
+
+      .nail-length h4 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #78504b;
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .price-tag {
+        font-weight: 600;
+        color: #503532;
+      }
+
+      .info-note {
+        background: #211513;
+        color: #e5c17e;
+        padding: 16px;
+        border-radius: 8px;
+        margin: 22px 0;
+        font-size: 13px;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 10001;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+
+      .modal-box {
+        background: #fffafa;
+        border-radius: 14px;
+        max-width: 560px;
+        width: 100%;
+        max-height: 90vh;
+        overflow: auto;
+        padding: 22px;
+        text-align: left;
+        position: relative;
+      }
+
+      .modal-box img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        border-radius: 9px;
+      }
+
+      .modal-box h3 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #78504b;
+        font-size: 30px;
+      }
+
+      .modal-box p {
+        color: #594743;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .modal-close {
+        position: absolute;
+        right: 15px;
+        top: 12px;
+        border: none;
+        background: #211513;
+        color: #e5c17e;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        cursor: pointer;
+      }
+
+      .option-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px;
+        border: 1px solid #ead7d0;
+        border-radius: 8px;
+        margin: 9px 0;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .modal-actions button {
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .selection-status {
+        font-size: 13px;
+        color: #503532;
+        margin-top: 12px;
+      }
+
+      .services-footer {
+        background: #100b0a;
+        color: #e5c17e;
+        text-align: center;
+        padding: 25px;
+        font-size: 12px;
+      }
+
+      @media (max-width: 850px) {
+        .service-container,
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .service-container,
+        .product-grid,
+        .nail-length-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-hero h1 {
+          font-size: 40px;
+        }
+        .catalogue {
+          padding: 20px 5%;
+        }
+        .view-top h2 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <header class="header">
+      <a href="index.html" class="logo">
+        <span class="crown">♛</span>
+        <span class="brand-name">DINEO'S</span>
+        <small>Elixir & Esthetics</small>
+      </a>
+
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="services.html" class="active">SERVICES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+
+      <a href="booking.html" class="book-button">BOOK NOW</a>
+    </header>
+
+    <!-- BANNER -->
+    <section class="services-hero">
+      <div>
+        <p>BEAUTY • ELEGANCE • SELF-CARE</p>
+        <h1>OUR SERVICES</h1>
+        <p>Experience Luxury, Every Day</p>
+      </div>
+    </section>
+
+    <!-- THREE ORIGINAL SERVICE CARDS -->
+    <main class="services" id="servicesHome">
+      <h2>Our Beauty Collections</h2>
+
+      <p class="service-intro">
+        Choose your favourite experience and explore our collections.
+      </p>
+
+      <div class="service-container">
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700"
+            alt="Nail services"
+          />
+          <h3>Nail Services</h3>
+          <p>Beautiful nails for every occasion.</p>
+          <button class="service-btn explore-button" data-view="nails">
+            EXPLORE MORE
+          </button>
+        </div>
+
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+            alt="Luxury perfumes"
+          />
+          <h3>Perfumes</h3>
+          <p>Discover fragrances for every personality.</p>
+          <button class="service-btn explore-button" data-view="perfumes">
+            EXPLORE MORE
+          </button>
+        </div>
+
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700"
+            alt="Skincare and facial treatments"
+          />
+          <h3>Skincare & Facials</h3>
+          <p>Refresh your skin and reveal your natural glow.</p>
+          <button class="service-btn explore-button" data-view="skincare">
+            EXPLORE MORE
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FULL SERVICE CATALOGUE -->
+    <section class="catalogue" id="serviceView" hidden>
+      <div class="view-top">
+        <h2 id="viewTitle">Our Collection</h2>
+        <button class="back-button" id="backButton">← BACK TO SERVICES</button>
+      </div>
+
+      <div class="catalogue-inner">
+        <!-- NAILS -->
+        <div class="service-panel" id="nails" hidden>
+          <h3>Choose Your Nail Length</h3>
+          <p>
+            Choose a length to see the suggested price. You can also add a
+            design.
+          </p>
+
+          <div class="nail-length-grid">
+            <article class="nail-length">
+              <img
+                src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700"
+                alt="Short nail design"
+              />
+              <div>
+                <h4>Short</h4>
+                <p class="price-tag">R250</p>
+                <p>Elegant, neat and easy to maintain.</p>
+                <button
+                  class="open-product"
+                  data-kind="nail"
+                  data-name="Nail Extensions"
+                  data-length="Short"
+                  data-price="250"
+                  data-image="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700"
+                >
+                  CHOOSE SHORT
+                </button>
+              </div>
+            </article>
+
+            <article class="nail-length">
+              <img
+                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700"
+                alt="Medium nail design"
+              />
+              <div>
+                <h4>Medium</h4>
+                <p class="price-tag">R300</p>
+                <p>A balanced length for everyday glam.</p>
+                <button
+                  class="open-product"
+                  data-kind="nail"
+                  data-name="Nail Extensions"
+                  data-length="Medium"
+                  data-price="300"
+                  data-image="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700"
+                >
+                  CHOOSE MEDIUM
+                </button>
+              </div>
+            </article>
+
+            <article class="nail-length">
+              <img
+                src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=700"
+                alt="Long nail design"
+              />
+              <div>
+                <h4>Long</h4>
+                <p class="price-tag">R380</p>
+                <p>Extra length for a bold statement look.</p>
+                <button
+                  class="open-product"
+                  data-kind="nail"
+                  data-name="Nail Extensions"
+                  data-length="Long"
+                  data-price="380"
+                  data-image="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=700"
+                >
+                  CHOOSE LONG
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <h3 style="margin-top: 38px">Other Nail Treatments</h3>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700"
+                alt="Manicure"
+              />
+              <div class="product-card-body">
+                <h4>Manicure</h4>
+                <p class="price-line">R150</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Manicure"
+                  data-price="150"
+                  data-image="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700"
+                >
+                  SELECT TREATMENT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=700"
+                alt="Pedicure"
+              />
+              <div class="product-card-body">
+                <h4>Pedicure</h4>
+                <p class="price-line">R180</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Pedicure"
+                  data-price="180"
+                  data-image="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=700"
+                >
+                  SELECT TREATMENT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700"
+                alt="Gel nails"
+              />
+              <div class="product-card-body">
+                <h4>Gel Nails</h4>
+                <p class="price-line">R250</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Gel Nails"
+                  data-price="250"
+                  data-image="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700"
+                >
+                  SELECT TREATMENT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=700"
+                alt="Acrylic nails"
+              />
+              <div class="product-card-body">
+                <h4>Acrylic Nails</h4>
+                <p class="price-line">R350</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Acrylic Nails"
+                  data-price="350"
+                  data-image="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=700"
+                >
+                  SELECT TREATMENT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700"
+                alt="Nail art"
+              />
+              <div class="product-card-body">
+                <h4>Nail Art</h4>
+                <p class="price-line">From R50</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Nail Art"
+                  data-price="50"
+                  data-image="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700"
+                >
+                  SELECT TREATMENT
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <p class="info-note">
+            Suggested design extras: French tips +R50; simple nail art +R50;
+            detailed nail art +R100; chrome effect +R70; gems and decorations
+            +R50.
+          </p>
+        </div>
+
+        <!-- PERFUMES -->
+        <div class="service-panel" id="perfumes" hidden>
+          <h3>Discover Your Signature Scent</h3>
+          <p>
+            Select a category, then choose a scent to view bottle sizes and
+            prices.
+          </p>
+
+          <div class="category-buttons">
+            <button class="category-button selected" data-category="women">
+              Women's Fragrances
+            </button>
+            <button class="category-button" data-category="men">
+              Men's Fragrances
+            </button>
+            <button class="category-button" data-category="mist">
+              Body Mist
+            </button>
+            <button class="category-button" data-category="luxury">
+              Luxury Perfumes
+            </button>
+          </div>
+
+          <div class="scent-group" id="women">
+            <div class="product-grid">
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  alt="Floral Elegance perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Floral Elegance</h4>
+                  <p>Soft rose and delicate floral notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Floral Elegance"
+                    data-image="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  alt="Vanilla Bloom perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Vanilla Bloom</h4>
+                  <p>Warm vanilla with a sweet floral finish.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Vanilla Bloom"
+                    data-image="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+                  alt="Fresh Blossom perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Fresh Blossom</h4>
+                  <p>Fresh, light and feminine notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Fresh Blossom"
+                    data-image="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="scent-group" id="men" hidden>
+            <div class="product-grid">
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  alt="Midnight Oud perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Midnight Oud</h4>
+                  <p>Deep woody and rich notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Midnight Oud"
+                    data-image="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  alt="Fresh Sport perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Fresh Sport</h4>
+                  <p>Clean, fresh and energetic notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Fresh Sport"
+                    data-image="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+                  alt="Urban Musk perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Urban Musk</h4>
+                  <p>Warm musk with a modern finish.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Urban Musk"
+                    data-image="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="scent-group" id="mist" hidden>
+            <div class="product-grid">
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=700"
+                  alt="Vanilla Mist body mist"
+                />
+                <div class="product-card-body">
+                  <h4>Vanilla Mist</h4>
+                  <p>Sweet and warm vanilla.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Vanilla Mist"
+                    data-image="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  alt="Berry Kiss body mist"
+                />
+                <div class="product-card-body">
+                  <h4>Berry Kiss</h4>
+                  <p>Fruity berry notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Berry Kiss"
+                    data-image="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  alt="Coconut Glow body mist"
+                />
+                <div class="product-card-body">
+                  <h4>Coconut Glow</h4>
+                  <p>Sweet tropical coconut notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Coconut Glow"
+                    data-image="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="scent-group" id="luxury" hidden>
+            <div class="product-grid">
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+                  alt="Golden Amber perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Golden Amber</h4>
+                  <p>Rich amber and warm notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Golden Amber"
+                    data-image="https://images.unsplash.com/photo-1541643600914-78b084683601?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  alt="Velvet Rose perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Velvet Rose</h4>
+                  <p>Elegant rose with a deep finish.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Velvet Rose"
+                    data-image="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <img
+                  src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  alt="Crystal Oud perfume"
+                />
+                <div class="product-card-body">
+                  <h4>Crystal Oud</h4>
+                  <p>Luxurious woody notes.</p>
+                  <button
+                    class="open-product"
+                    data-kind="perfume"
+                    data-name="Crystal Oud"
+                    data-image="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"
+                  >
+                    VIEW SIZES & PRICES
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <p class="info-note">
+            Scent names and bottle prices are sample catalogue entries. Replace
+            them with your actual products and prices before accepting real
+            orders.
+          </p>
+        </div>
+
+        <!-- SKINCARE AND FACIALS -->
+        <div class="service-panel" id="skincare" hidden>
+          <h3>Skincare Treatments</h3>
+          <p>Choose a treatment to view its details and suggested price.</p>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700"
+                alt="Skin cleansing treatment"
+              />
+              <div class="product-card-body">
+                <h4>Skin Cleansing</h4>
+                <p>Refreshing skin-cleansing treatment.</p>
+                <p class="price-line">R120</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Skin Cleansing"
+                  data-price="120"
+                  data-image="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"
+                alt="Exfoliation treatment"
+              />
+              <div class="product-card-body">
+                <h4>Exfoliation</h4>
+                <p>Helps remove dead skin cells.</p>
+                <p class="price-line">R150</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Exfoliation"
+                  data-price="150"
+                  data-image="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=700"
+                alt="Hydrating skincare treatment"
+              />
+              <div class="product-card-body">
+                <h4>Hydrating Treatment</h4>
+                <p>Leaves skin feeling soft and hydrated.</p>
+                <p class="price-line">R180</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Hydrating Treatment"
+                  data-price="180"
+                  data-image="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=700"
+                alt="Face mask treatment"
+              />
+              <div class="product-card-body">
+                <h4>Face Mask</h4>
+                <p>A relaxing skincare treatment.</p>
+                <p class="price-line">R100</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Face Mask"
+                  data-price="100"
+                  data-image="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <h3 style="margin-top: 38px">Facial Treatments</h3>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700"
+                alt="Classic facial"
+              />
+              <div class="product-card-body">
+                <h4>Classic Facial</h4>
+                <p>Refreshing cleansing and skincare.</p>
+                <p class="price-line">R250</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Classic Facial"
+                  data-price="250"
+                  data-image="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700"
+                alt="Deep cleansing facial"
+              />
+              <div class="product-card-body">
+                <h4>Deep Cleansing Facial</h4>
+                <p>A focused cleansing treatment.</p>
+                <p class="price-line">R300</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Deep Cleansing Facial"
+                  data-price="300"
+                  data-image="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=700"
+                alt="Hydrating facial"
+              />
+              <div class="product-card-body">
+                <h4>Hydrating Facial</h4>
+                <p>Designed to refresh and hydrate skin.</p>
+                <p class="price-line">R280</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Hydrating Facial"
+                  data-price="280"
+                  data-image="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700"
+                alt="Glow facial"
+              />
+              <div class="product-card-body">
+                <h4>Glow Facial</h4>
+                <p>A treatment focused on a fresh-looking glow.</p>
+                <p class="price-line">R320</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Glow Facial"
+                  data-price="320"
+                  data-image="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700"
+                alt="Relaxation facial"
+              />
+              <div class="product-card-body">
+                <h4>Relaxation Facial</h4>
+                <p>A soothing and relaxing facial experience.</p>
+                <p class="price-line">R250</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Relaxation Facial"
+                  data-price="250"
+                  data-image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img
+                src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"
+                alt="Exfoliating facial"
+              />
+              <div class="product-card-body">
+                <h4>Exfoliating Facial</h4>
+                <p>A facial treatment that includes exfoliation.</p>
+                <p class="price-line">R280</p>
+                <button
+                  class="open-product"
+                  data-kind="treatment"
+                  data-name="Exfoliating Facial"
+                  data-price="280"
+                  data-image="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"
+                >
+                  VIEW & SELECT
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <p class="info-note">
+            All prices shown are suggested prices and can be adjusted to match
+            your final salon price list.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT SELECTION POP-UP -->
+    <div class="modal" id="productModal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true">
+        <button class="modal-close" id="modalClose">×</button>
+
+        <img id="modalImage" src="" alt="" />
+
+        <h3 id="modalTitle">Choose your option</h3>
+
+        <p id="modalDescription"></p>
+
+        <div id="modalOptions"></div>
+
+        <div class="modal-actions">
+          <button class="action-btn" id="addSelection">ADD TO BOOKING</button>
+          <button class="back-button" id="cancelSelection">CLOSE</button>
+        </div>
+
+        <p class="selection-status" id="selectionStatus"></p>
+      </div>
+    </div>
+
+    <!-- BOOKING CTA -->
+    <section
+      style="
+        background: #211513;
+        color: white;
+        text-align: center;
+        padding: 55px 20px;
+      "
+    >
+      <h2 style="color: #e5c17e; font-family: 'Cormorant Garamond', serif">
+        Your Beauty Journey Starts Here
+      </h2>
+      <p>Give yourself the luxury of time, beauty and self-care.</p>
+      <a href="booking.html" class="service-btn">GO TO BOOKING</a>
+    </section>
+
+    <footer class="services-footer">
+      <p>&copy; 2026 Dineo's Elixir & Esthetics. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const serviceView = document.getElementById('serviceView');
+        const modal = document.getElementById('productModal');
+
+        const titles = {
+          nails: 'Nail Services',
+          perfumes: 'Perfume Collection',
+          skincare: 'Skincare & Facials',
+        };
+
+        let currentSelection = null;
+
+        // OPEN A SERVICE COLLECTION
+        document.querySelectorAll('.explore-button').forEach(function (button) {
+          button.addEventListener('click', function () {
+            document
+              .querySelectorAll('.service-panel')
+              .forEach(function (panel) {
+                panel.hidden = true;
+              });
+
+            document.getElementById(button.dataset.view).hidden = false;
+
+            document.getElementById('viewTitle').textContent =
+              titles[button.dataset.view];
+
+            serviceView.hidden = false;
+            document.body.style.overflow = 'hidden';
+            serviceView.scrollTop = 0;
+          });
+        });
+
+        // BACK TO SERVICES
+        document
+          .getElementById('backButton')
+          .addEventListener('click', function () {
+            serviceView.hidden = true;
+            document.body.style.overflow = '';
+          });
+
+        // PERFUME CATEGORY BUTTONS
+        document
+          .querySelectorAll('.category-button')
+          .forEach(function (button) {
+            button.addEventListener('click', function () {
+              document
+                .querySelectorAll('.category-button')
+                .forEach(function (item) {
+                  item.classList.remove('selected');
+                });
+
+              document
+                .querySelectorAll('.scent-group')
+                .forEach(function (group) {
+                  group.hidden = true;
+                });
+
+              button.classList.add('selected');
+
+              document.getElementById(button.dataset.category).hidden = false;
+            });
+          });
+
+        // CLOSE POP-UP
+        function closeModal() {
+          modal.hidden = true;
+          currentSelection = null;
+          document.getElementById('selectionStatus').textContent = '';
+        }
+
+        document
+          .getElementById('modalClose')
+          .addEventListener('click', closeModal);
+        document
+          .getElementById('cancelSelection')
+          .addEventListener('click', closeModal);
+
+        modal.addEventListener('click', function (event) {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        // OPEN PRODUCT DETAILS
+        document.querySelectorAll('.open-product').forEach(function (button) {
+          button.addEventListener('click', function () {
+            const kind = button.dataset.kind;
+            const name = button.dataset.name;
+            const image = button.dataset.image;
+
+            document.getElementById('modalTitle').textContent = name;
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalImage').alt = name;
+
+            document.getElementById('modalOptions').innerHTML = '';
+            document.getElementById('selectionStatus').textContent = '';
+
+            currentSelection = {
+              service:
+                kind === 'perfume'
+                  ? 'Perfumes'
+                  : kind === 'nail'
+                  ? 'Nail Services'
+                  : button.closest('#skincare')
+                  ? 'Skincare & Facials'
+                  : 'Nail Services',
+              name: name,
+              price: 0,
+              details: {},
+            };
+
+            // PERFUME BOTTLE SIZES
+            if (kind === 'perfume') {
+              document.getElementById('modalDescription').textContent =
+                'Choose your preferred bottle size. Each size has its own suggested price.';
+
+              [
+                ['30 ml', 150],
+                ['50 ml', 220],
+                ['100 ml', 350],
+              ].forEach(function (option, index) {
+                const row = document.createElement('label');
+                row.className = 'option-row';
+
+                row.innerHTML = `<span>${option[0]} — R${option[1]}</span>
+                        <input type="radio" name="perfumeSize"
+                        value="${option[0]}" data-price="${option[1]}"
+                        ${index === 0 ? 'checked' : ''}>`;
+
+                document.getElementById('modalOptions').appendChild(row);
+              });
+            }
+
+            // NAIL LENGTH AND DESIGN
+            else if (kind === 'nail') {
+              document.getElementById('modalDescription').textContent =
+                'Choose an optional nail design. The price includes your selected length.';
+
+              const basePrice = Number(button.dataset.price);
+
+              const summary = document.createElement('p');
+              summary.className = 'price-line';
+              summary.textContent =
+                button.dataset.length + ' nail extensions: R' + basePrice;
+
+              document.getElementById('modalOptions').appendChild(summary);
+
+              const designs = [
+                ['No extra design', 0],
+                ['French tips', 50],
+                ['Simple nail art', 50],
+                ['Detailed nail art', 100],
+                ['Chrome effect', 70],
+                ['Gems and decorations', 50],
+              ];
+
+              designs.forEach(function (design, index) {
+                const row = document.createElement('label');
+                row.className = 'option-row';
+
+                row.innerHTML = `<span>${design[0]} ${
+                  design[1] ? '+ R' + design[1] : ''
+                }</span>
+                        <input type="radio" name="nailDesign"
+                        value="${design[0]}" data-price="${design[1]}"
+                        ${index === 0 ? 'checked' : ''}>`;
+
+                document.getElementById('modalOptions').appendChild(row);
+              });
+
+              currentSelection.details.length = button.dataset.length;
+              currentSelection.price = basePrice;
+            }
+
+            // SKINCARE, FACIALS AND OTHER NAIL TREATMENTS
+            else {
+              const price = Number(button.dataset.price);
+
+              document.getElementById('modalDescription').textContent =
+                'Review this treatment and add it to your booking.';
+
+              const row = document.createElement('div');
+              row.className = 'option-row';
+              row.innerHTML = `<strong>Suggested price</strong><strong>R${price}</strong>`;
+
+              document.getElementById('modalOptions').appendChild(row);
+
+              currentSelection.price = price;
+            }
+
+            modal.hidden = false;
+          });
+        });
+
+        // ADD CUSTOMER SELECTION TO BOOKING STORAGE
+        document
+          .getElementById('addSelection')
+          .addEventListener('click', function () {
+            if (!currentSelection) return;
+
+            // PERFUME SIZE
+            if (currentSelection.service === 'Perfumes') {
+              const size = document.querySelector(
+                'input[name="perfumeSize"]:checked'
+              );
+
+              if (!size) {
+                document.getElementById('selectionStatus').textContent =
+                  'Please choose a bottle size.';
+                return;
+              }
+
+              currentSelection.details.size = size.value;
+              currentSelection.price = Number(size.dataset.price);
+            }
+
+            // NAIL LENGTH AND DESIGN
+            if (currentSelection.name === 'Nail Extensions') {
+              const design = document.querySelector(
+                'input[name="nailDesign"]:checked'
+              );
+
+              const extra = design ? Number(design.dataset.price) : 0;
+
+              currentSelection.details.design = design
+                ? design.value
+                : 'No extra design';
+
+              currentSelection.price += extra;
+            }
+
+            // SAVE SELECTIONS
+            let items = [];
+
+            try {
+              items = JSON.parse(
+                localStorage.getItem('deeBookingSelections') || '[]'
+              );
+            } catch (error) {
+              items = [];
+            }
+
+            items.push(currentSelection);
+
+            localStorage.setItem('deeBookingSelections', JSON.stringify(items));
+
+            document.getElementById('selectionStatus').textContent =
+              'Added to your booking selection! You can continue browsing or go to Booking.';
+
+            if (!document.getElementById('continueBooking')) {
+              const link = document.createElement('a');
+
+              link.id = 'continueBooking';
+              link.href = 'booking.html';
+              link.className = 'service-btn';
+              link.textContent = 'CONTINUE TO BOOKING';
+
+              document.getElementById('modalOptions').appendChild(link);
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
